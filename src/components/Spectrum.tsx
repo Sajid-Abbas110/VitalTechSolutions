@@ -1,4 +1,4 @@
-import { ToolCase, Cable, Leaf, Heart, Shield } from "lucide-react";
+import { ToolCase, Cable, Heart, Shield } from "lucide-react";
 
 // Color Theme
 const PRIMARY_DARK = "#2c5e2b";

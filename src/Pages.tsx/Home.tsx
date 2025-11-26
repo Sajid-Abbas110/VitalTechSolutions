@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <div>
       <Navbar/>
-      <Hero isMobileMenuOpen={false}/>
+      <Hero/>
       <About/>
       <Services/>
       <Gallery/>

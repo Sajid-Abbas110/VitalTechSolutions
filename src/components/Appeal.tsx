@@ -1,4 +1,4 @@
-import { Briefcase, Cable, Leaf, Heart, Shield } from "lucide-react"; // Using Briefcase to fix the import error (ToolCase is not available)
+import { Briefcase, Cable, Heart, Shield } from "lucide-react"; // Using Briefcase to fix the import error (ToolCase is not available)
 
 // Color Theme
 const PRIMARY_DARK = "#2c5e2b";
