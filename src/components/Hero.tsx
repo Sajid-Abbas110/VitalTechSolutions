@@ -5,7 +5,7 @@ export default function HeroSection() {
   return (
     <section
       className="w-full h-screen bg-cover bg-center relative"
-      style={{ backgroundImage: "url('/banner-cover.jpg')" }}
+      style={{ backgroundImage: "url('/hero.jpg')" }}
     >
       {/* BLACK OVERLAY */}
       <div className="absolute inset-0 bg-black/60"></div>
@@ -49,9 +49,9 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <div className="hidden sm:flex mt-14 items-start ">
+          {/* <div className="hidden sm:flex mt-14 items-start ">
             <img src="/pro3.png" className="w-[99%]" />
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
