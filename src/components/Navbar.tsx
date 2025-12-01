@@ -173,6 +173,42 @@ export default function Navbar() {
                     Softwate Development
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/game-development"
+                    className="block px-4 py-2 hover:bg-[#98bc62] hover:text-white transition"
+                    onClick={handleLinkClick}
+                  >
+                    Game Development
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/seo-&-content-writing"
+                    className="block px-4 py-2 hover:bg-[#98bc62] hover:text-white transition"
+                    onClick={handleLinkClick}
+                  >
+                    SEO & Content Writing
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/Digital Marketing"
+                    className="block px-4 py-2 hover:bg-[#98bc62] hover:text-white transition"
+                    onClick={handleLinkClick}
+                  >
+                    Digital Marketing
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/ui-ux-design"
+                    className="block px-4 py-2 hover:bg-[#98bc62] hover:text-white transition"
+                    onClick={handleLinkClick}
+                  >
+                    UI-UX Design
+                  </Link>
+                </li>
               </ul>
             )}
           </li>
@@ -340,6 +376,51 @@ export default function Navbar() {
                     onClick={handleLinkClick}
                   >
                     Graphic Design
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/software-development"
+                    className="block py-1 text-sm text-gray-600 hover:text-[#98bc62]"
+                    onClick={handleLinkClick}
+                  >
+                    Software-development
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/game-development"
+                    className="block py-1 text-sm text-gray-600 hover:text-[#98bc62]"
+                    onClick={handleLinkClick}
+                  >
+                    Game Development
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/seo-&-content-writing"
+                    className="block py-1 text-sm text-gray-600 hover:text-[#98bc62]"
+                    onClick={handleLinkClick}
+                  >
+                    Graphic Design
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/digital-marketing"
+                    className="block py-1 text-sm text-gray-600 hover:text-[#98bc62]"
+                    onClick={handleLinkClick}
+                  >
+                    Digital-marketing
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/ui-ux-design"
+                    className="block py-1 text-sm text-gray-600 hover:text-[#98bc62]"
+                    onClick={handleLinkClick}
+                  >
+                    UI-UX Design
                   </Link>
                 </li>
               </ul>
