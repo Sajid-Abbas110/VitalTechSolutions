@@ -9,15 +9,22 @@ export default function Navbar() {
 
   // --- Refs ---
   const lastScrollRef = useRef(0);
-  // Ref for the desktop services dropdown <li> element
-  const dropdownRef = useRef<HTMLLIElement | null>(null);
-  // Ref for the main mobile menu container <div>
-  const mobileMenuRef = useRef<HTMLDivElement | null>(null);
+  const dropdownRef = useRef<HTMLLIElement | null>(null); // Desktop dropdown ref
+  const mobileMenuRef = useRef<HTMLDivElement | null>(null); // Mobile menu container ref
 
-  // Helper function to close both the mobile menu and the dropdown on any link click
+  // Helper function for general link clicks (closes both menus instantly)
   const handleLinkClick = () => {
     setIsMobileMenuOpen(false);
     setOpenDropdown(false);
+  };
+
+  // 🚀 FIX: Helper for Mobile Dropdown Links 🚀
+  // Closes the main menu with a delay to allow the Link navigation to complete.
+  const handleMobileDropdownLinkClick = () => {
+    setOpenDropdown(false);
+    setTimeout(() => {
+      setIsMobileMenuOpen(false);
+    }, 100);
   };
 
   // --- Scroll Logic: HIDE ON SCROLL DOWN / SHOW ON SCROLL UP ---
@@ -28,20 +35,15 @@ export default function Navbar() {
       const scrollThreshold = 5;
 
       if (currentScroll <= 0) {
-        // Always show at the very top of the page
         setShow(true);
       } else if (Math.abs(currentScroll - lastScroll) < scrollThreshold) {
-        // Ignore tiny movements
         return;
       } else if (currentScroll > lastScroll) {
-        // Scrolling down: Hide the navbar
         setShow(false);
       } else {
-        // Scrolling up: Show the navbar
         setShow(true);
       }
 
-      // Update the reference for the next scroll event
       lastScrollRef.current = currentScroll;
     };
 
@@ -49,11 +51,10 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // --- Close dropdown/mobile menu when clicking outside ---
+ 
   useEffect(() => {
-    // FIX: Using the correct global MouseEvent type for TypeScript
     const handleClickOutside = (e: MouseEvent) => {
-      // 1. Close desktop dropdown
+     
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(e.target as Node)
@@ -61,8 +62,7 @@ export default function Navbar() {
         setOpenDropdown(false);
       }
 
-      // 2. Close mobile menu
-      // Check if the click is outside the mobile menu AND outside the toggle button
+      
       const mobileToggleElement = document.getElementById("mobile-menu-toggle");
       if (
         isMobileMenuOpen &&
@@ -97,20 +97,12 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center space-x-8 text-sm text-[#2c5e2b] font-medium">
           <li>
-            <Link
-              to="/"
-              className="hover:text-[#98bc62] transition"
-              onClick={handleLinkClick}
-            >
+            <Link to="/" className="hover:text-[#98bc62] transition" onClick={handleLinkClick}>
               Home
             </Link>
           </li>
           <li>
-            <Link
-              to="/about"
-              className="hover:text-[#98bc62] transition"
-              onClick={handleLinkClick}
-            >
+            <Link to="/about" className="hover:text-[#98bc62] transition" onClick={handleLinkClick}>
               About
             </Link>
           </li>
@@ -164,13 +156,13 @@ export default function Navbar() {
                     Graphic Design
                   </Link>
                 </li>
-                 <li>
+                <li>
                   <Link
                     to="/software-development"
                     className="block px-4 py-2 hover:bg-[#98bc62] hover:text-white transition"
                     onClick={handleLinkClick}
                   >
-                    Softwate Development
+                    Software Development
                   </Link>
                 </li>
                 <li>
@@ -184,7 +176,7 @@ export default function Navbar() {
                 </li>
                 <li>
                   <Link
-                    to="/seo-&-content-writing"
+                    to="/seo-content-writing"
                     className="block px-4 py-2 hover:bg-[#98bc62] hover:text-white transition"
                     onClick={handleLinkClick}
                   >
@@ -193,7 +185,7 @@ export default function Navbar() {
                 </li>
                 <li>
                   <Link
-                    to="/Digital Marketing"
+                    to="/digital-marketing"
                     className="block px-4 py-2 hover:bg-[#98bc62] hover:text-white transition"
                     onClick={handleLinkClick}
                   >
@@ -214,29 +206,17 @@ export default function Navbar() {
           </li>
 
           <li>
-            <Link
-              to="/portfolio"
-              className="hover:text-[#98bc62] transition"
-              onClick={handleLinkClick}
-            >
+            <Link to="/portfolio" className="hover:text-[#98bc62] transition" onClick={handleLinkClick}>
               Portfolio
             </Link>
           </li>
           <li>
-            <Link
-              to="/our-team"
-              className="hover:text-[#98bc62] transition"
-              onClick={handleLinkClick}
-            >
+            <Link to="/our-team" className="hover:text-[#98bc62] transition" onClick={handleLinkClick}>
               Our Team
             </Link>
           </li>
           <li>
-            <Link
-              to="/contact-us"
-              className="hover:text-[#98bc62] transition"
-              onClick={handleLinkClick}
-            >
+            <Link to="/contact-us" className="hover:text-[#98bc62] transition" onClick={handleLinkClick}>
               Contact
             </Link>
           </li>
@@ -264,7 +244,13 @@ export default function Navbar() {
         {/* Mobile menu icon and Toggler */}
         <div className="md:hidden cursor-pointer" id="mobile-menu-toggle">
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={() => {
+              // Toggle mobile menu and close dropdown when the main menu closes
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+              if (isMobileMenuOpen) {
+                setOpenDropdown(false);
+              }
+            }}
             aria-label="Toggle Mobile Menu"
           >
             {isMobileMenuOpen ? (
@@ -311,20 +297,12 @@ export default function Navbar() {
       >
         <ul className="flex flex-col space-y-4 px-6 py-4 text-[#2c5e2b] font-medium border-t border-gray-100">
           <li>
-            <Link
-              to="/"
-              className="block py-2 hover:text-[#98bc62] transition"
-              onClick={handleLinkClick}
-            >
+            <Link to="/" className="block py-2 hover:text-[#98bc62] transition" onClick={handleLinkClick}>
               Home
             </Link>
           </li>
           <li>
-            <Link
-              to="/about"
-              className="block py-2 hover:text-[#98bc62] transition"
-              onClick={handleLinkClick}
-            >
+            <Link to="/about" className="block py-2 hover:text-[#98bc62] transition" onClick={handleLinkClick}>
               About
             </Link>
           </li>
@@ -350,12 +328,11 @@ export default function Navbar() {
             </button>
             {openDropdown && (
               <ul className="pl-4 border-l border-[#98bc62] mt-2 space-y-2">
-                {/* FIX: Clicking these links closes BOTH menus */}
                 <li>
                   <Link
                     to="/web-development"
                     className="block py-1 text-sm text-gray-600 hover:text-[#98bc62]"
-                    onClick={handleLinkClick}
+                    onClick={handleMobileDropdownLinkClick}
                   >
                     Web Development
                   </Link>
@@ -364,7 +341,7 @@ export default function Navbar() {
                   <Link
                     to="/mobile-apps"
                     className="block py-1 text-sm text-gray-600 hover:text-[#98bc62]"
-                    onClick={handleLinkClick}
+                    onClick={handleMobileDropdownLinkClick}
                   >
                     Mobile Apps
                   </Link>
@@ -373,7 +350,7 @@ export default function Navbar() {
                   <Link
                     to="/graphic-design"
                     className="block py-1 text-sm text-gray-600 hover:text-[#98bc62]"
-                    onClick={handleLinkClick}
+                    onClick={handleMobileDropdownLinkClick}
                   >
                     Graphic Design
                   </Link>
@@ -382,43 +359,43 @@ export default function Navbar() {
                   <Link
                     to="/software-development"
                     className="block py-1 text-sm text-gray-600 hover:text-[#98bc62]"
-                    onClick={handleLinkClick}
+                    onClick={handleMobileDropdownLinkClick}
                   >
-                    Software-development
+                    Software Development
                   </Link>
                 </li>
                 <li>
                   <Link
                     to="/game-development"
                     className="block py-1 text-sm text-gray-600 hover:text-[#98bc62]"
-                    onClick={handleLinkClick}
+                    onClick={handleMobileDropdownLinkClick}
                   >
                     Game Development
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="/seo-&-content-writing"
+                    to="/seo-content-writing"
                     className="block py-1 text-sm text-gray-600 hover:text-[#98bc62]"
-                    onClick={handleLinkClick}
+                    onClick={handleMobileDropdownLinkClick}
                   >
-                    Graphic Design
+                    SEO & Content Writing
                   </Link>
                 </li>
                 <li>
                   <Link
                     to="/digital-marketing"
                     className="block py-1 text-sm text-gray-600 hover:text-[#98bc62]"
-                    onClick={handleLinkClick}
+                    onClick={handleMobileDropdownLinkClick}
                   >
-                    Digital-marketing
+                    Digital Marketing
                   </Link>
                 </li>
                 <li>
                   <Link
                     to="/ui-ux-design"
                     className="block py-1 text-sm text-gray-600 hover:text-[#98bc62]"
-                    onClick={handleLinkClick}
+                    onClick={handleMobileDropdownLinkClick}
                   >
                     UI-UX Design
                   </Link>
@@ -428,29 +405,17 @@ export default function Navbar() {
           </li>
 
           <li>
-            <Link
-              to="/portfolio"
-              className="block py-2 hover:text-[#98bc62] transition"
-              onClick={handleLinkClick}
-            >
+            <Link to="/portfolio" className="block py-2 hover:text-[#98bc62] transition" onClick={handleLinkClick}>
               Portfolio
             </Link>
           </li>
           <li>
-            <Link
-              to="/our-team"
-              className="block py-2 hover:text-[#98bc62] transition"
-              onClick={handleLinkClick}
-            >
+            <Link to="/our-team" className="block py-2 hover:text-[#98bc62] transition" onClick={handleLinkClick}>
               Our Team
             </Link>
           </li>
           <li>
-            <Link
-              to="/contact-us"
-              className="block py-2 hover:text-[#98bc62] transition"
-              onClick={handleLinkClick}
-            >
+            <Link to="/contact-us" className="block py-2 hover:text-[#98bc62] transition" onClick={handleLinkClick}>
               Contact
             </Link>
           </li>
