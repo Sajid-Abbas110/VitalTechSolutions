@@ -25,9 +25,9 @@ const services: LinkItem[] = [
   { text: "Graphic Design", href: "/graphic-design" },
   { text: "Software Development Services", href: "/software-development" },
   { text: "Game Development", href: "/game-development" },
-  { text: "SEO & Content Writing", href: "/seo-content" },
+  { text: "SEO And Content Writing", href: "/seo-and-content-writing" },
   { text: "Digital Marketing Services", href: "/digital-marketing" },
-  { text: "UI-UX Design", href: "/ui-ux-design" },
+  { text: "UI-UX Design", href: "/uiux-design" },
 ];
 
 // 2. Updated 'company' for accurate navigation
