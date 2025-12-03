@@ -88,7 +88,7 @@ export default function ProjectsSection() {
       {/* BUTTON */}
       <div className="text-center mt-20">
         <Link
-          to="/contact-us"
+          to="/portfolio"
           className="px-6 py-3 bg-[#2c5e2b] text-white rounded-full text-sm hover:bg-white hover:text-[#2c5e2b] hover:border-[#2c5e2b] border transition"
         >
           View Portfolio
