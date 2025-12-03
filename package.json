@@ -13,9 +13,10 @@
     "framer-motion": "^12.23.25",
     "git": "^0.1.5",
     "lucide-react": "^0.554.0",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
     "react-router-dom": "^7.9.6",
+    "react-server-dom-webpack": "^19.2.1",
     "react-swipeable": "^7.0.2",
     "react-typed": "^2.0.12"
   },
