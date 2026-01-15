@@ -19,25 +19,25 @@ import UIUXDesign from "./Pages.tsx/UIUXDesign";
 const App = () => {
   return (
     <BrowserRouter>
-    <ScrollToTopBar/>
+      <ScrollToTopBar />
       <Routes>
-        
+
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/web-development" element={<WebDevelopment/>} />
-        <Route path="/mobile-apps" element={<MobileApps/>} />
-        <Route path="/graphic-design" element={<GraphicDesign/>} />
-        <Route path="/portfolio" element={<Portfolio/>} />
-        <Route path="/contact-us" element={<ContactUs/>} />
-        <Route path="/our-team" element={<OurTeam/>} />
-        <Route path="/software-development" element={<SoftwareDevelopment/>} />
-        <Route path="/game-development" element={<GameDevelopment/>} />
-        <Route path="/seo-and-content-writing" element={<SEOAndContentWriting/>} />
-        <Route path="/digital-marketing" element={<DigitalMarketing/>} />
-        <Route path="/uiux-design" element={<UIUXDesign/>} />
+        <Route path="/web-development" element={<WebDevelopment />} />
+        <Route path="/mobile-apps" element={<MobileApps />} />
+        <Route path="/graphic-design" element={<GraphicDesign />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/our-team" element={<OurTeam />} />
+        <Route path="/software-development" element={<SoftwareDevelopment />} />
+        <Route path="/game-development" element={<GameDevelopment />} />
+        <Route path="/seo-and-content-writing" element={<SEOAndContentWriting />} />
+        <Route path="/digital-marketing" element={<DigitalMarketing />} />
+        <Route path="/uiux-design" element={<UIUXDesign />} />
 
-        
+
       </Routes>
     </BrowserRouter>
   );

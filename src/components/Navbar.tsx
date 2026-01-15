@@ -35,7 +35,7 @@ export default function Navbar() {
       else setShow(true);
 
       lastScrollRef.current = current;
-      
+
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -72,27 +72,26 @@ export default function Navbar() {
   }, [isMobileMenuOpen]);
 
   const services = [
-    "Web-Development",
-    "Mobile-Apps",
-    "Graphic-Design",
-    "Software-Development",
-    "Game-Development",
-    "SEO-And-Content-Writing",
-    "Digital-Marketing",
-    "UIUX-Design",
+    "web-development",
+    "mobile-apps",
+    "graphic-design",
+    "software-development",
+    "game-development",
+    "seo-and-content-writing",
+    "digital-marketing",
+    "uiux-design",
   ];
 
   const prettyName = (txt: string) =>
     txt
       .replace(/-/g, " ")
-      // .replace("ui ux", "UI-UX")
+      .replace("uiux design", "UI/UX Design")
       .replace("seo and content writing", "SEO and Content Writing");
 
   return (
     <nav
-      className={`w-full bg-white shadow-md fixed top-0 left-0 z-50 transition-transform duration-300 ${
-        show ? "translate-y-0" : "-translate-y-full"
-      }`}
+      className={`w-full bg-white shadow-md fixed top-0 left-0 z-50 transition-transform duration-300 ${show ? "translate-y-0" : "-translate-y-full"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
@@ -122,9 +121,8 @@ export default function Navbar() {
             >
               Services
               <svg
-                className={`w-4 h-4 transition-transform ${
-                  openDesktopDropdown ? "rotate-180" : ""
-                }`}
+                className={`w-4 h-4 transition-transform ${openDesktopDropdown ? "rotate-180" : ""
+                  }`}
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
@@ -211,9 +209,8 @@ export default function Navbar() {
       {/* MOBILE MENU */}
       <div
         ref={mobileMenuRef}
-        className={`md:hidden fixed top-[68px] left-0 w-full bg-white shadow-xl transition-all duration-300 overflow-hidden ${
-          isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`md:hidden fixed top-[68px] left-0 w-full bg-white shadow-xl transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
         <ul className="flex flex-col space-y-4 px-6 py-4 border-t text-[#2c5e2b]">
           <li>
@@ -231,9 +228,8 @@ export default function Navbar() {
             >
               Services
               <svg
-                className={`w-4 h-4 transition-transform ${
-                  openMobileDropdown ? "rotate-180" : ""
-                }`}
+                className={`w-4 h-4 transition-transform ${openMobileDropdown ? "rotate-180" : ""
+                  }`}
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
