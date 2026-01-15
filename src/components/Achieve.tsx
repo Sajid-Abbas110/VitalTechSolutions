@@ -1,4 +1,4 @@
-import { Briefcase, Cable, Heart, Shield } from "lucide-react"; // FIX: Replaced ToolCase with Briefcase
+import { Briefcase, Cable, Heart, Shield } from "lucide-react";
 
 // Color Theme
 const PRIMARY_DARK = "#2c5e2b";
