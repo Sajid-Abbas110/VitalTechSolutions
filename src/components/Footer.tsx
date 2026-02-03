@@ -3,8 +3,9 @@ import {
   Facebook,
   Instagram,
   Linkedin,
-  Youtube,
+  Twitter,
 } from "lucide-react";
+
 
 // Define the type for a link object
 type LinkItem = {
@@ -150,28 +151,36 @@ const Footer = () => {
               <p className="text-sm font-semibold text-white mb-2">Follow us</p>
               <div className="flex space-x-3">
                 <a
-                  href="#"
+                  href="https://www.facebook.com/vitaltechsolutionspvtltd/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-2 rounded-full bg-white hover:scale-110 transition"
                 >
                   <Facebook size={18} className="text-blue-600" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/company/vitaltechsolutionspvtltd/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-2 rounded-full bg-white hover:scale-110 transition"
                 >
                   <Linkedin size={18} className="text-blue-700" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/vitaltechsolutionspvtltd/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-2 rounded-full bg-white hover:scale-110 transition"
                 >
                   <Instagram size={18} className="text-pink-500" />
                 </a>
                 <a
-                  href="#"
+                  href="https://x.com/vitaltechpvtltd"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-2 rounded-full bg-white hover:scale-110 transition"
                 >
-                  <Youtube size={18} className="text-red-600" />
+                  <Twitter size={18} className="text-black" />
                 </a>
               </div>
             </div>
