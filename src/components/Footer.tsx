@@ -196,7 +196,7 @@ const Footer = () => {
           className="border-t mt-14 pt-5 text-xs flex flex-col sm:flex-row items-center justify-between"
           style={{ borderColor: "#ffffff22", color: TEXT_LIGHT }}
         >
-          <p>© 2025 VitalTechSolutions. All rights reserved.</p>
+          <p>© 2026 VitalTechSolutions. All rights reserved.</p>
           <div className="flex space-x-4 mt-2 sm:mt-0">
             <a href="/terms" className="hover:text-white">
               Terms & Condition
